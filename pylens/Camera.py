@@ -33,6 +33,8 @@ class Camera:
         elif f < self.lens.f:
             warnings.warn('Calculating f number below lens minimum.')
         H = self.hyperfocal(f)
+        if distance > H:
+            return float('inf')
         DOF = 2 * H * distance**2
         DOF /= H**2 - distance**2
         return DOF

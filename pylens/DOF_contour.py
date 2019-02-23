@@ -29,7 +29,8 @@ for idx, distance in enumerate(distances):
 
 
 plot.loglog()
-cp = plot.contour(distances, apetures, np.log10(dof))
+cp = plot.contour(distances, apetures, dof,
+                  levels=[0.01, 0.1, 1, 10, 100])
 plot.clabel(cp, inline=True,
            fontsize=10)
 plot.xlabel('distance (m)')
